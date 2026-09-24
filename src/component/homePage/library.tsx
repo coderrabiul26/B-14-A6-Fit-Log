@@ -1,5 +1,6 @@
 import React from 'react';
 import WorkoutCard from '../shared/workoutCard';
+import { IWorkoutType } from '@/type/workoutType';
 
 
 const fitlogDataPromise=async()=>{
@@ -17,7 +18,7 @@ const Library = async() => {
             <p className='text-gray-400 mb-3'>Twelve lifts covering every major muscle group.</p>
             <div className='container mx-auto grid grid-cols-3 gap-6'>
                 {
-                    data.map((workout)=><WorkoutCard key={workout.id} workout={workout}></WorkoutCard>)
+                    data.map((workout:IWorkoutType)=><WorkoutCard key={workout.id} workout={workout}></WorkoutCard>)
                 }
 
 
