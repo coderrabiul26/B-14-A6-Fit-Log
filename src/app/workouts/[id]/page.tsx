@@ -20,7 +20,7 @@ const detailPage = async({params}:detailPageParams) => {
             <div className='relative'>
                 <Image src={workout.image} alt='workout-image' width={400} height={400} className='w-full h-full object-cover rounded-2xl'></Image>
             </div>
-            <div className='space-y-5'>
+            <div className='space-y-6'>
                 <h1 className='uppercase text-3xl font-bold text-white'>{workout.name}</h1>
                 <p className='text-gray-300'>{workout.description}</p>
                 <div className='flex gap-3'>
@@ -30,7 +30,7 @@ const detailPage = async({params}:detailPageParams) => {
                         
                     ))}
                 </div>
-                <div className='grid grid-cols-2 bg-gray-700 text-gray-300 p-2 space-y-2'>
+                <div className='grid grid-cols-2 bg-gray-700 text-gray-300 p-2 space-y-3'>
                     <h2>EQUIPMENT</h2>
                     <span className='justify-self-end'>{workout.equipment}</span>
                     <h2>DIFFICULTY</h2>
@@ -46,7 +46,7 @@ const detailPage = async({params}:detailPageParams) => {
                     <h2>RATING</h2>
                     <span className='justify-self-end'>{workout.rating}</span>
                 </div>
-               <div className='text-gray-300 space-y-2'>
+               <div className='text-gray-300 space-y-3'>
                     <h1 className='text-xl font-bold text-white'>INSTRUCTIONS</h1>
                     {workout.instructions.map((item, ind)=>(
                     <div key={ind}>{ind+1}. {item}</div>
