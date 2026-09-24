@@ -2,6 +2,7 @@ import { IWorkoutType } from '@/type/workoutType';
 import Image from 'next/image';
 import React from 'react';
 import { Clock, Apple, Star } from "@deemlol/next-icons"
+import Link from 'next/link';
 
 interface IWorkoutProps{
     workout: IWorkoutType
@@ -10,15 +11,16 @@ interface IWorkoutProps{
 const WorkoutCard = ({workout}:IWorkoutProps) => {
   
     return (
+        <Link href={`/workouts/${workout.id}`}>
         <div className='rounded-2xl'>
             <Image src={workout.image} alt='workout-image' width={400} height={400} className='rounded-t-3xl w-full h-75 object-cover'></Image>
             <div className='space-y-4 my-5 ml-5'>
                 <div className='flex gap-3'>
                     {workout.muscleGroups.map((muscle, ind)=>(
-                  
+                        
                         <div key={ind} className="badge uppercase font-bold bg-[#c2f800] ">{muscle}</div>
-                  
-                ))}
+                        
+                    ))}
                 </div>
                 
                 <h1 className='text-white text-lg tont-bold uppercase'>{workout.name}</h1>
@@ -32,6 +34,7 @@ const WorkoutCard = ({workout}:IWorkoutProps) => {
             
             
         </div>
+    </Link>
     );
 };
 

@@ -1,9 +1,13 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Detail = () => {
     return (
         <div>
-            hi detail page
+            <div>
+                
+            </div>
+            <div></div>
         </div>
     );
 };
