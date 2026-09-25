@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Archive, Bookmark  } from "@deemlol/next-icons"
 import { workoutContext } from '@/context/workoutContext';
 import { IWorkoutType } from '@/type/workoutType';
+import { toast } from 'react-toastify';
 
 interface IButtonActionProps{
     workout:IWorkoutType
@@ -12,12 +13,26 @@ const ButtonAction = ({workout}: IButtonActionProps) => {
 
     const{addPlan, setAddPlan, addSave, setAddSave}=useContext(workoutContext)
 
-    const handleAddPlan=()=>{
-        setAddPlan([...addPlan,workout])
+    
+    const handleAddPlan = () => {
+    const alreadyAdded = addPlan.some(item => item.id === workout.id)
+    if (alreadyAdded) {
+        toast.warning("Already in your plan")
+        return
+    }
+    setAddPlan([...addPlan, workout])
+    toast.success("Added to today's plan")
     }
     
-    const handleAddSave=()=>{
-        setAddSave([...addSave,workout])
+
+    const handleAddSave = () => {
+    const alreadyAdded = addSave.some(item => item.id === workout.id)
+    if (alreadyAdded) {
+        toast.warning("Already in your plan")
+        return
+    }
+    setAddSave([...addSave, workout])
+    toast.success("Saved for later")
     }
     
 

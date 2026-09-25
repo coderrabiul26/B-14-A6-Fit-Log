@@ -2,6 +2,9 @@ import { IWorkoutType } from '@/type/workoutType';
 import Image from 'next/image';
 import React from 'react';
 import { Clock, Apple, Star, Check, X } from "@deemlol/next-icons"
+import Link from 'next/link';
+import RemoveCard from './removeCard';
+
 
 interface workoutProps{
     workout:IWorkoutType
@@ -24,11 +27,15 @@ const AddPlanCard = ({workout}:workoutProps) => {
             </div>
 
             <div className='flex justify-end gap-3 items-center'>
-                <button className='bg-gray-700 py-2 px-4 rounded-xl text-white cursor-pointer'> View Details</button>
                 
-                <button className='bg-[#c2f800] py-2 px-4 rounded-xl cursor-pointer flex gap-2'> <Check ></Check> Add to today's plan</button>
+                <Link href={`/workouts/${workout.id}`}>
+                <button className='bg-gray-700 py-2 px-4 rounded-xl text-white cursor-pointer'> View Details</button>
+                </Link>
+         
+                
+                <button className='bg-[#c2f800] py-2 px-4 rounded-xl cursor-pointer flex gap-2'> <Check ></Check> Mark as Done</button>
 
-                <X className='text-white text-3xl'></X>
+                <RemoveCard workout={workout}></RemoveCard>
             </div>
             
         </div>

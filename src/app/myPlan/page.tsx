@@ -3,12 +3,33 @@ import AddPlanCard from '@/component/myPlanCard/addPlanCard';
 import AddSaveCard from '@/component/myPlanCard/addSaveCard';
 import { workoutContext } from '@/context/workoutContext';
 import { IWorkoutType } from '@/type/workoutType';
+import Link from 'next/link';
 import React, { useContext } from 'react';
 
 const MyPlanPage = () => {
     const { addPlan, addSave } = useContext(workoutContext);
 
     return (
+        <div>
+            <div className='bg-gray-900 container mx-auto mb-5'>
+                <h1 className='text-white font-bold text-3xl'>MY PLAN</h1>
+                <p className='text-gray-400'>Cap of five lifts for taday. Finish them, then load more</p>
+            </div>
+            <div className='bg-gray-700 p-5 flex justify-between container mx-auto rounded-2xl mb-5'>
+                <div>
+                    <h1 className='text-gray-400'>Exercise</h1>
+                    <span className='text-3xl text-[#c2f800]'>2</span>
+                </div>
+                <div>
+                    <h1 className='text-gray-400'>Minutes</h1>
+                    <span className='text-3xl]'>23</span>
+                </div>
+                <div>
+                    <h1 className='text-gray-400'>Calories</h1>
+                    <span className='text-3xl]'>190</span>
+                </div>
+            </div>
+
         <div className="container mx-auto">
             <div role="tablist" className="tabs tabs-lift">
                 {/* Tab 1 */}
@@ -19,8 +40,8 @@ const MyPlanPage = () => {
                     className="tab"
                     aria-label="Today's Plan"
                     defaultChecked
-                />
-                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box">
+                    />
+                <div role="tabpanel" className="tab-content bg-gray-900 border-base-300 rounded-box">
                     {addPlan.length > 0 ? (
                         <div className="flex flex-col gap-2">
                             {addPlan.map((workout: IWorkoutType) => (
@@ -31,7 +52,10 @@ const MyPlanPage = () => {
                         <div className="text-center space-y-4 py-15">
                             <h1 className="text-white text-3xl font-bold">NOTHING HERE YET</h1>
                             <p className="text-gray-400">Browse the library and add a lift to get today moving.</p>
+                            
+                            <Link href={'/'}>
                             <button className="bg-[#c2f800] py-2 px-4 font-bold rounded-full text-black">Go to workouts</button>
+                            </Link>
                         </div>
                     )}
                 </div>
@@ -43,8 +67,8 @@ const MyPlanPage = () => {
                     role="tab"
                     className="tab"
                     aria-label="Saved"
-                />
-                <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box">
+                    />
+                <div role="tabpanel" className="tab-content bg-gray-900 border-base-300 rounded-box">
                     {addSave.length > 0 ? (
                         <div className="flex flex-col gap-2">
                             {addSave.map((workout: IWorkoutType) => (
@@ -60,6 +84,7 @@ const MyPlanPage = () => {
                     )}
                 </div>
             </div>
+        </div>
         </div>
     );
 };
