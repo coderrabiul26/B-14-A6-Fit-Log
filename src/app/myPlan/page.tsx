@@ -4,10 +4,18 @@ import AddSaveCard from '@/component/myPlanCard/addSaveCard';
 import { workoutContext } from '@/context/workoutContext';
 import { IWorkoutType } from '@/type/workoutType';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 const MyPlanPage = () => {
     const { addPlan, addSave } = useContext(workoutContext);
+
+    const[activeTab, setActiveTab]=useState<'plan'| 'save'>('plan')
+    const currentWorkouts=activeTab==='plan'?addPlan:addSave;
+
+    const totalMinutes=currentWorkouts.reduce((total, workout)=>total+Number(workout.duration),0)
+
+    const totalCalories=currentWorkouts.reduce((total, workout)=>total+Number(workout.caloriesBurned),0)
+
 
     return (
         <div>
@@ -18,15 +26,15 @@ const MyPlanPage = () => {
             <div className='bg-gray-700 p-5 flex justify-between container mx-auto rounded-2xl mb-5'>
                 <div>
                     <h1 className='text-gray-400'>Exercise</h1>
-                    <span className='text-3xl text-[#c2f800]'>2</span>
+                    <span className='text-3xl text-[#c2f800]'>{currentWorkouts.length}</span>
                 </div>
                 <div>
                     <h1 className='text-gray-400'>Minutes</h1>
-                    <span className='text-3xl]'>23</span>
+                    <span className='text-3xl text-white font-bold'>{totalMinutes}</span>
                 </div>
                 <div>
                     <h1 className='text-gray-400'>Calories</h1>
-                    <span className='text-3xl]'>190</span>
+                    <span className='text-3xl text-white font-bold'>{totalCalories}</span>
                 </div>
             </div>
 
@@ -39,7 +47,9 @@ const MyPlanPage = () => {
                     role="tab"
                     className="tab"
                     aria-label="Today's Plan"
-                    defaultChecked
+                    checked={activeTab==='plan'}
+                    onChange={()=>setActiveTab('plan')}
+                  
                     />
                 <div role="tabpanel" className="tab-content bg-gray-900 border-base-300 rounded-box">
                     {addPlan.length > 0 ? (
@@ -67,6 +77,8 @@ const MyPlanPage = () => {
                     role="tab"
                     className="tab"
                     aria-label="Saved"
+                    checked={activeTab==='save'}
+                    onChange={()=>setActiveTab('save')}
                     />
                 <div role="tabpanel" className="tab-content bg-gray-900 border-base-300 rounded-box">
                     {addSave.length > 0 ? (
