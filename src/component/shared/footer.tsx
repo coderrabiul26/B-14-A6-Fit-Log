@@ -10,7 +10,7 @@ const Footer = () => {
                 <h1 className='text-xl font-bold text-white'>FITLOG</h1>
             </div>
             <div>
-                <p className='text-gray-400'>@2026 FitLog-Workout Library. Train hard, log honest. </p>
+                <p className='text-gray-500'>@2026 FitLog-Workout Library. Train hard, log honest. </p>
             </div>
             
         </div>
