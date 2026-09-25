@@ -4,7 +4,11 @@ import { Archive, Bookmark  } from "@deemlol/next-icons"
 import { workoutContext } from '@/context/workoutContext';
 import { IWorkoutType } from '@/type/workoutType';
 
-const ButtonAction = ({workout}: {workout:IWorkoutType}) => {
+interface IButtonActionProps{
+    workout:IWorkoutType
+}
+
+const ButtonAction = ({workout}: IButtonActionProps) => {
 
     const{addPlan, setAddPlan, addSave, setAddSave}=useContext(workoutContext)
 
