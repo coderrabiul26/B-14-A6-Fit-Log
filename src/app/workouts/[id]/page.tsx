@@ -16,7 +16,7 @@ const detailPage = async({params}:detailPageParams) => {
     const workout:IWorkoutType= await res.json()
     
     return (
-        <div className='grid grid-cols-2 gap-10 container mx-auto bg-gray-800'>
+        <div className='grid grid-cols-1 md:grid-cols-2 p-2 md:p-0 gap-10 container mx-auto bg-gray-800'>
             <div className='relative'>
                 <Image src={workout.image} alt='workout-image' width={400} height={400} className='w-full h-full object-cover rounded-2xl'></Image>
             </div>

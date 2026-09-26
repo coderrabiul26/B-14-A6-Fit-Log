@@ -18,8 +18,8 @@ const MyPlanPage = () => {
 
 
     return (
-        <div>
-            <div className='bg-gray-900 container mx-auto mb-5'>
+        <div className='p-2 md:p-0'>
+            <div className='bg-gray-900 container mx-auto mb-5 '>
                 <h1 className='text-white font-bold text-xl md:3xl'>MY PLAN</h1>
                 <p className='text-gray-400 italic'>Cap of five lifts for today. Finish them, then load more.</p>
             </div>
@@ -40,12 +40,12 @@ const MyPlanPage = () => {
 
         <div className="container mx-auto">
             <div role="tablist" className="tabs tabs-lift">
-                {/* Tab 1 */}
+             
                 <input
                     type="radio"
                     name="my_tabs_3"
                     role="tab"
-                    className="tab"
+                    className="tab text-white checked:bg-[#c2f800] checked:text-black"
                     aria-label="Today's Plan"
                     checked={activeTab==='plan'}
                     onChange={()=>setActiveTab('plan')}
@@ -61,7 +61,7 @@ const MyPlanPage = () => {
                     ) : (
                         <div className="text-center space-y-4 py-15">
                             <h1 className="text-white text-3xl font-bold">NOTHING HERE YET</h1>
-                            <p className="text-gray-400">Browse the library and add a lift to get today moving.</p>
+                            <p className="text-gray-400 italic">Browse the library and add a lift to get today moving.</p>
                             
                             <Link href={'/'}>
                             <button className="bg-[#c2f800] py-2 px-4 font-bold rounded-full text-black">Go to workouts</button>
@@ -70,12 +70,12 @@ const MyPlanPage = () => {
                     )}
                 </div>
 
-                {/* Tab 2 */}
+      
                 <input
                     type="radio"
                     name="my_tabs_3"
                     role="tab"
-                    className="tab"
+                    className="tab text-white checked:bg-[#c2f800] checked:text-black"
                     aria-label="Saved"
                     checked={activeTab==='save'}
                     onChange={()=>setActiveTab('save')}

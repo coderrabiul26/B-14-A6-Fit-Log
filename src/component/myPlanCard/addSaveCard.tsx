@@ -10,7 +10,7 @@ interface workoutProps{
 }
 const AddSaveCard = ({workout}:workoutProps) => {
     return (
-        <div className='grid grid-cols-2 gap-20 justify-between items-center bg-gray-800 p-3 rounded-2xl'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-20 justify-between items-center bg-gray-800 p-3 rounded-2xl'>
 
             <div className='flex items-center gap-4'>
                 <Image src={workout.image} alt='workout-image' width={200} height={200} className='w-100 h-40 object-cover rounded-4xl'></Image>
@@ -25,7 +25,7 @@ const AddSaveCard = ({workout}:workoutProps) => {
                 </div>
             </div>
 
-            <div className='flex justify-end gap-3 items-center'>
+            <div className='flex justify-start md:justify-end gap-3 items-center'>
                 <Link href={`/workouts/${workout.id}`}>
                 <button className='bg-gray-700 py-2 px-4 rounded-xl text-white cursor-pointer'> View Details</button>
                 </Link>
