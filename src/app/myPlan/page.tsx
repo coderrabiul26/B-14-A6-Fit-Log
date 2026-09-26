@@ -21,12 +21,12 @@ const MyPlanPage = () => {
         <div>
             <div className='bg-gray-900 container mx-auto mb-5'>
                 <h1 className='text-white font-bold text-3xl'>MY PLAN</h1>
-                <p className='text-gray-400'>Cap of five lifts for taday. Finish them, then load more</p>
+                <p className='text-gray-400 italic'>Cap of five lifts for today. Finish them, then load more.</p>
             </div>
             <div className='bg-gray-700 p-5 flex justify-between container mx-auto rounded-2xl mb-5'>
                 <div>
-                    <h1 className='text-gray-400'>Exercise</h1>
-                    <span className='text-3xl text-[#c2f800]'>{currentWorkouts.length}</span>
+                    <h1 className='text-gray-400'>Exercises</h1>
+                    <span className='text-3xl font-bold text-[#c2f800]'>{currentWorkouts.length}</span>
                 </div>
                 <div>
                     <h1 className='text-gray-400'>Minutes</h1>
@@ -90,8 +90,11 @@ const MyPlanPage = () => {
                     ) : (
                         <div className="text-center space-y-4 py-15">
                             <h1 className="text-white text-3xl font-bold">NOTHING HERE YET</h1>
-                            <p className="text-gray-400">Browse the library and add a lift to get today moving.</p>
+                            <p className="text-gray-400 italic">Browse the library and add a lift to get today moving.</p>
+
+                            <Link href={'/'}>
                             <button className="bg-[#c2f800] py-2 px-4 font-bold rounded-full text-black">Go to workouts</button>
+                            </Link>
                         </div>
                     )}
                 </div>

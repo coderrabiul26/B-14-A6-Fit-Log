@@ -22,11 +22,11 @@ const detailPage = async({params}:detailPageParams) => {
             </div>
             <div className='space-y-6'>
                 <h1 className='uppercase text-3xl font-bold text-white'>{workout.name}</h1>
-                <p className='text-gray-400'>{workout.description}</p>
+                <p className='text-gray-400 italic'>{workout.description}</p>
                 <div className='flex gap-3'>
                     {workout.muscleGroups.map((muscle, ind)=>(
                         
-                        <div key={ind} className="badge uppercase p-2 bg-[#c2f800] border-none ">{muscle}</div>
+                        <div key={ind} className="badge p-2 bg-[#c2f800] border-none ">{muscle}</div>
                         
                     ))}
                 </div>
@@ -40,9 +40,9 @@ const detailPage = async({params}:detailPageParams) => {
                     <h2>REPS</h2>
                     <span className='justify-self-end'>{workout.reps}</span>
                     <h2>DURATION</h2>
-                    <span className='justify-self-end'>{workout.duration}</span>
+                    <span className='justify-self-end'>{workout.duration} min</span>
                     <h2>CALORIES</h2>
-                    <span className='justify-self-end'>{workout.caloriesBurned}</span>
+                    <span className='justify-self-end'>{workout.caloriesBurned} kcal</span>
                     <h2>RATING</h2>
                     <span className='justify-self-end'>{workout.rating}</span>
                 </div>

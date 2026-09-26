@@ -16,22 +16,27 @@ const Navbar = () => {
                 <Image src={navbarLogo} alt='navbar-logo'></Image>
                 <h1 className='text-xl font-bold text-white'>FITLOG</h1>
             </div>
-            <div className='flex gap-3'>
-                <Link href={'/'} className={`bg-gray-500 text-lg font-bold py-2 px-4 rounded-full ${pathname==='/'? 'text-[#ccff00]':''} `}>Workout</Link>
-                <Link href={'/myPlan'} className={`bg-gray-500 text-lg font-bold py-2 px-4 rounded-full ${pathname==='/myPlan'? 'text-[#ccff00]':''} `}>My Plan</Link>
+            <div className='flex gap-5'>
+                <Link href={'/'} className={`bg-gray-300 text-lg font-bold py-2 px-4 rounded-full ${pathname==='/'? 'text-[#ccff00]':''} `}>Workout</Link>
+                <Link href={'/myPlan'} className={`bg-gray-300 text-lg font-bold py-2 px-4 rounded-full ${pathname==='/myPlan'? 'text-[#ccff00]':''} `}>My Plan</Link>
             </div>
             
-            <Link href={'/myPlan'}>
-            <div className='flex gap-1'>
+            <div className='flex'>
+                
+                <Link href={'/myPlan'}>
                 <button className="btn btn-outline text-white border-none text-lg">
-                Plan <div className="badge badge-sm badge-secondary bg-[#ccff00] text-black border-none">{addPlan.length}</div>
+                Plan <span className="badge badge-sm badge-secondary bg-[#ccff00] text-black border-none">{addPlan.length}</span>
                 </button>
+                </Link>
+                
+                <Link href={'/myPlan'}>
                 <button className="btn text-white btn-outline border-none text-lg">
-                Saved <div className="badge badge-sm badge-outline text-white">{addSave.length}</div>
+                Saved <span className="badge badge-sm badge-outline text-white">{addSave.length}</span>
                 </button>
+                </Link>
                 
             </div>
-            </Link>
+           
         </div>
     );
 };

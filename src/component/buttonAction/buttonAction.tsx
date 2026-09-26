@@ -28,7 +28,7 @@ const ButtonAction = ({workout}: IButtonActionProps) => {
     const handleAddSave = () => {
     const alreadyAdded = addSave.some(item => item.id === workout.id)
     if (alreadyAdded) {
-        toast.warning("Already in your plan")
+        toast.warning("Already saved for later")
         return
     }
     setAddSave([...addSave, workout])
@@ -39,10 +39,10 @@ const ButtonAction = ({workout}: IButtonActionProps) => {
     return (
         <div className='flex gap-3'>
 
-            <button className='bg-[#c2f800] py-2 px-4 flex gap-2 rounded-xl cursor-pointer' onClick={()=>handleAddPlan()}> <Archive></Archive> Add to today's plan</button>
+            <button className='bg-[#c2f800] btn btn-primary py-2 px-4 flex gap-2 rounded-xl cursor-pointer text-black' onClick={()=>handleAddPlan()}> <Archive></Archive> Add to today's plan</button>
 
 
-            <button className='bg-gray-700 py-2 px-4 flex gap-2 rounded-xl text-white cursor-pointer'  onClick={()=>handleAddSave()}> <Bookmark></Bookmark> Save for later</button>
+            <button className='bg-gray-700 btn btn-secondary py-2 px-4 flex gap-2 rounded-xl text-white cursor-pointer outline-none border-none shadow-none'  onClick={()=>handleAddSave()}> <Bookmark></Bookmark> Save for later</button>
             
         </div>
     );
