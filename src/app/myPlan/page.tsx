@@ -20,7 +20,7 @@ const MyPlanPage = () => {
     return (
         <div>
             <div className='bg-gray-900 container mx-auto mb-5'>
-                <h1 className='text-white font-bold text-3xl'>MY PLAN</h1>
+                <h1 className='text-white font-bold text-xl md:3xl'>MY PLAN</h1>
                 <p className='text-gray-400 italic'>Cap of five lifts for today. Finish them, then load more.</p>
             </div>
             <div className='bg-gray-700 p-5 flex justify-between container mx-auto rounded-2xl mb-5'>

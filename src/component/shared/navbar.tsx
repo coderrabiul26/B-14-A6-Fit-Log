@@ -11,7 +11,7 @@ const Navbar = () => {
     const{addPlan, addSave}=useContext(workoutContext)
     const pathname=usePathname()
     return (
-        <div className='container mx-auto flex justify-between items-center py-5 bg-black'>
+        <div className='container mx-auto flex justify-between items-center px-2 md:px-0 py-5'>
             <div className='flex gap-3'>
                 <Image src={navbarLogo} alt='navbar-logo'></Image>
                 <h1 className='text-xl font-bold text-white'>FITLOG</h1>

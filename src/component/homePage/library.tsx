@@ -13,10 +13,10 @@ const Library = async() => {
     const data= await fitlogDataPromise()
 
     return (
-        <section id='library' className='container mx-auto bg-gray-800'>
-            <h1 className='text-3xl font-bold text-white pt-3'>THE LIBRARY</h1>
+        <section id='library' className='container mx-auto bg-gray-800 p-2 md:p-0'>
+            <h1 className='text-2xl md:text-3xl font-bold text-white pt-3'>THE LIBRARY</h1>
             <p className='text-gray-400 mb-3'>Twelve lifts covering every major muscle group.</p>
-            <div className='grid grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-2 md:p-0'>
                 {
                     data.map((workout:IWorkoutType)=><WorkoutCard key={workout.id} workout={workout}></WorkoutCard>)
                 }
