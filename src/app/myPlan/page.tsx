@@ -29,10 +29,7 @@ const MyPlanPage = () => {
             sortedWorkouts.sort((a,b)=>b.rating- a.rating)
         }
         return sortedWorkouts
-
     }
-
-
 
     const sortedAddPlan= sortedWorkouts(addPlan)
     const sortedAddSave= sortedWorkouts(addSave)
@@ -61,7 +58,7 @@ const MyPlanPage = () => {
                 </div>
             </div>
 
-            <div className='text-center'>
+            <div className='text-center my-5'>
                 <select 
                 value={sortBy} 
                 onChange={(e)=>setSortBy(e.target.value as 'duration'|'calories'|'rating' )}
