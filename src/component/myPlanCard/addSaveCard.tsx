@@ -17,10 +17,10 @@ const AddSaveCard = ({workout}:workoutProps) => {
                 <div>
                     <h1 className='text-white text-xl font-bold'>{workout.name}</h1>
                     <p className='text-gray-400'>{workout.equipment}</p>
-                    <div className='text-gray-400 flex gap-4 mt-3'>
-                        <div className='flex gap-2'><Clock></Clock>{workout.duration}</div>
-                        <div className='flex gap-2'><Apple></Apple>{workout.caloriesBurned}</div>
-                        <div className='flex gap-2'><Star></Star>{workout.rating}</div>
+                    <div className='text-gray-400 flex gap-1 md:gap-4 mt-3'>
+                        <div className='flex gap-1 md:gap-2'><Clock></Clock>{workout.duration}</div>
+                        <div className='flex gap-1 md:gap-2'><Apple></Apple>{workout.caloriesBurned}</div>
+                        <div className='flex gap-1 md:gap-2'><Star></Star>{workout.rating}</div>
                     </div>
                 </div>
             </div>

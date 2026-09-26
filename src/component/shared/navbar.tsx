@@ -11,10 +11,10 @@ const Navbar = () => {
     const{addPlan, addSave}=useContext(workoutContext)
     const pathname=usePathname()
     return (
-        <div className='container mx-auto flex justify-center md:justify-between gap-2 items-center px-2 md:px-0 py-5'>
-            <div className='flex gap-3'>
+        <div className='container mx-auto flex justify-center md:justify-between gap-8 items-center px-2 md:px-0 py-5'>
+            <div className='md:flex md:gap-3 hidden'>
                 <Image src={navbarLogo} alt='navbar-logo'></Image>
-                <h1 className='text-xl font-bold text-white'>FITLOG</h1>
+                <h1 className='text-lg md:text-xl font-bold text-white'>FITLOG</h1>
             </div>
             <div className='flex gap-1 md:gap-5'>
                 <Link href={'/'} className={`bg-gray-300 text-lg font-bold md:py-2 md:px-4 p-2 rounded-full flex items-center ${pathname==='/'? 'text-[#ccff00]':''} `}>Workout</Link>
