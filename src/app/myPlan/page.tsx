@@ -16,6 +16,29 @@ const MyPlanPage = () => {
 
     const totalCalories=currentWorkouts.reduce((total, workout)=>total+Number(workout.caloriesBurned),0)
 
+    const[sortBy, setSortBy]=useState<'duration'|'calories'|'rating'>('duration')
+    
+    const sortedWorkouts=(workouts:IWorkoutType[])=>{
+        
+        const sortedWorkouts=[...workouts]
+        if(sortBy==='duration'){
+            sortedWorkouts.sort((a,b)=>b.duration-a.duration)
+        }else if(sortBy==='calories'){
+            sortedWorkouts.sort((a,b)=>b.caloriesBurned- a.caloriesBurned)
+        }else if(sortBy==='rating'){
+            sortedWorkouts.sort((a,b)=>b.rating- a.rating)
+        }
+        return sortedWorkouts
+
+    }
+
+
+
+    const sortedAddPlan= sortedWorkouts(addPlan)
+    const sortedAddSave= sortedWorkouts(addSave)
+
+    console.log(sortedAddPlan, sortedAddSave);
+
 
     return (
         <div className='p-2 md:p-0'>
@@ -38,6 +61,18 @@ const MyPlanPage = () => {
                 </div>
             </div>
 
+            <div className='text-center'>
+                <select 
+                value={sortBy} 
+                onChange={(e)=>setSortBy(e.target.value as 'duration'|'calories'|'rating' )}
+                className="select select-success">
+                    <option disabled={true}>Sort By</option>
+                    <option value={'duration'}>Duration</option>
+                    <option value={'calories'}>Calories</option>
+                    <option value={'rating'}>Rating</option>
+                </select>
+            </div>
+
         <div className="container mx-auto">
             <div role="tablist" className="tabs tabs-lift">
              
@@ -52,9 +87,9 @@ const MyPlanPage = () => {
                   
                     />
                 <div role="tabpanel" className="tab-content bg-gray-900 border-base-300 rounded-box">
-                    {addPlan.length > 0 ? (
+                    {sortedAddPlan.length > 0 ? (
                         <div className="flex flex-col gap-2">
-                            {addPlan.map((workout: IWorkoutType) => (
+                            {sortedAddPlan.map((workout: IWorkoutType) => (
                                 <AddPlanCard key={workout.id} workout={workout} />
                             ))}
                         </div>
@@ -81,9 +116,9 @@ const MyPlanPage = () => {
                     onChange={()=>setActiveTab('save')}
                     />
                 <div role="tabpanel" className="tab-content bg-gray-900 border-base-300 rounded-box">
-                    {addSave.length > 0 ? (
+                    {sortedAddSave.length > 0 ? (
                         <div className="flex flex-col gap-2">
-                            {addSave.map((workout: IWorkoutType) => (
+                            {sortedAddSave.map((workout: IWorkoutType) => (
                                 <AddSaveCard key={workout.id} workout={workout} />
                             ))}
                         </div>
